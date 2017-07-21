@@ -8,9 +8,10 @@
   <meta name="description" content="Chat with Bender !">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
   <link rel="icon" href="img/icon.jpg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <!-- Place favicon.ico in the root directory -->
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/normalize.css">
@@ -34,12 +35,39 @@
 
 
       <p class="bender">
-        Holla
+        Holla, je suis mexican.
       </p>
 
     </div>
+
+
+
+
+
     <div class="send">
+
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="em em-some-emoji em-smile"></i>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#"><i class="em em-some-emoji em-smile"></i></a>
+          <a class="dropdown-item" href="#"><i class="em em-some-emoji em-beers"></i></a>
+          <a class="dropdown-item" href="#"><i class="em em-some-emoji em-hushed"></i></a>
+          <a class="dropdown-item" href="#"><i class="em em-some-emoji em-expressionless"></i></a>
+          <a class="dropdown-item" href="#"><i class="em em-some-emoji em-yellow_heart"></i></a>
+          <a class="dropdown-item" href="#"><i class="em em-some-emoji em-tired_face"></i></a>
+          <a class="dropdown-item" href="#"><i class="em em-some-emoji em-unamused"></i></a>
+          <a class="dropdown-item" href="#"><i class="em em-some-emoji em-wink"></i></a>
+          <a class="dropdown-item" href="#"><i class="em em-some-emoji em-pig"></i></a>
+
+
+        </div>
+      </div>
+
       <textarea name="name" rows="1" cols="80" placeholder="Message.." tabindex="-1"></textarea>
+
       <input type="button" name="" value="Envoyer">
     </div>
   </div>
@@ -48,11 +76,11 @@
 
   <script type="text/javascript">
     $(document).ready(function() {
-      var user= prompt("NAME");
-      // var user=""
+      // var user= prompt("NAME");
+      var user = "";
 
 
-      function scrollDown(){
+      function scrollDown() {
         $(".chat").scrollTop($(".chat")[0].scrollHeight);
       }
 
@@ -63,6 +91,9 @@
         }
       });
 
+      $(".em-some-emoji").click(function(){
+        $("textarea").val( $("textarea").val()  + "<i class='" + $(this).attr("class") + "'></i>")
+      })
 
       function send() {
         $("p:last").after("<p class='user'> " + $("textarea").val() + "<p>");
@@ -71,14 +102,17 @@
         scrollDown();
       }
 
-      var rand=0;
-      var rep=["oui moi aussi  "+user,"nooon","dis m'en plus","Ah bah non en faite","et toi?","C'est bien, et si on jouer à un jeu ?","jouons à Pyramide!","commode","tiroir","je comprend rien de ce que tu dis "+user,"tu connais undefined?"]
-      function answer(){
-        setTimeout(function(){
+      var rand = 0;
+      var rep = ["Ca vaaaa", "oui <i class='em em-some-emoji em-smile'></i> " + user, "nooon", "dis m'en plus", "Ah bah non en faite <i class='em em-some-emoji em-expressionless'></i>", "et toi?", "C'est bien, et si on jouer à un jeu ?", "jouons à Pyramide!", "commode", "tiroir", "je comprend rien de ce que tu dis " + user,
+        "tu connais undefined?"
+      ]
+
+      function answer() {
+        setTimeout(function() {
           $("p:last").after("<p class='bender'>" + rep[rand] + "<p>");
           rand++;
           scrollDown();
-        },1000)
+        }, 1000)
       }
 
 

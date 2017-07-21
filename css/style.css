@@ -68,6 +68,14 @@ img {
 .ang .send {
   text-align: center;
 }
+.ang .send .dropdown-menu {
+  min-width: auto;
+}
+.ang .send .dropdown-menu a {
+  display: inline-block;
+  width: auto;
+  padding: 5px 0 !important;
+}
 .ang .send textarea {
   margin: 10px auto;
   padding: 15px;

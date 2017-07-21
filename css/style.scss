@@ -12,7 +12,7 @@ img{
   h1{
     font-weight: bold;
     color: white;
-    
+
   }
   margin-top: 20px;
   border-radius: 5px;
@@ -70,6 +70,14 @@ img{
   }
   .send{
     text-align: center;
+    .dropdown-menu{
+      min-width: auto;
+      a{
+        display: inline-block;
+        width: auto;
+        padding: 5px 0 !important;
+      }
+    }
     textarea{
       margin:  10px auto ;
       padding: 15px;
